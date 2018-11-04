@@ -27,18 +27,24 @@ def setupPlots(t, ys):
         fig = plt.subplot(r, 1, i+1)
         fig.set_title("Fig" + str(i+1))
         plt.plot(t, ys[i])
-        plt.axis((0,100,-3,3))
+        plt.axis((0,100,-2,2))
         
 
 t, h = np.linspace(0, 100, 10000, retstep=True)
 
 ys = []
 
-ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : -5, lambda t : 4, lambda t : t**2))
-ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 0, lambda t : 3, lambda t : 0))
-ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 0, lambda t : 10, lambda t : 0))
-ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 0, lambda t : 4, lambda t : 2*math.cos(2*math.pi*t)))
-ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 1/t, lambda t : t, lambda t : 2*math.cos(2*math.pi*t)))
+#ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : -5, lambda t : 4, lambda t : t**2))
+#ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 0, lambda t : 3, lambda t : 0))
+#ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 0, lambda t : 10, lambda t : 0))
+#ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 0, lambda t : 4, lambda t : 2*math.cos(2*math.pi*t)))
+#ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 1/t, lambda t : t, lambda t : 2*math.cos(2*math.pi*t)))
+#ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : 1/t, lambda t : t, lambda t : 2*math.cos(2*math.pi*t)))
+
+ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : t, lambda t : t, lambda t : 2*math.cos(2*math.pi*t)))
+ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : t/5, lambda t : t**2, lambda t : 2*math.cos(2*math.pi*t)))
+ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : t/20, lambda t : t**2, lambda t : 2*math.cos(2*math.pi*t)))
+ys.append(ODEsolver(t, h, 0, 1, lambda t : 1, lambda t : t/20, lambda t : t, lambda t : 2*math.cos(2*math.pi*t)))
 
 setupPlots(t, ys)
 
